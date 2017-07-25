@@ -4,7 +4,13 @@ var webpack = require('webpack')
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
-  entry: './src/main.js',
+  // entry: './src/main.js',
+	entry: {
+		bundle: [
+				'./src/main.scss',
+				'./src/main.js',
+			],
+	},
   output: {
     path: path.resolve(__dirname, './dist'),
     publicPath: '/dist/',
@@ -12,18 +18,19 @@ module.exports = {
   },
   module: {
     rules: [
-      {
+			{
+				test: /\.scss$/,
+				use: ExtractTextPlugin.extract({
+					fallback: 'vue-style-loader',
+					use: ['css-loader','sass-loader'],
+					publicPath: '/dist'
+				})
+			},
+			{
         test: /\.vue$/,
         loader: 'vue-loader',
         options: {
-          loaders: {
-            // Since sass-loader (weirdly) has SCSS as its default parse mode, we map
-            // the "scss" and "sass" values for the lang attribute to the right configs here.
-            // other preprocessors should work out of the box, no loader config like this necessary.
-            'scss': 'vue-style-loader!css-loader!sass-loader',
-            'sass': 'vue-style-loader!css-loader!sass-loader?indentedSyntax'
-          }
-          // other vue-loader options go here
+          extractCSS: true
         }
       },
       {
@@ -31,14 +38,6 @@ module.exports = {
         loader: 'babel-loader',
         exclude: /node_modules/
       },
-			{
-			  test: /\.scss$/,
-			  use: ExtractTextPlugin.extract({
-					fallback: 'vue-style-loader',
-					use: ['css-loader','sass-loader'],
-					publicPath: '/dist'
-				})
-			},
       {
         test: /\.(png|jpg|gif|svg)$/,
         loader: 'file-loader',
