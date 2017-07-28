@@ -9,62 +9,58 @@
 </head>
 
 <body>
-	<main id="app">
-		<div class="menu">
-			<div class="top">
-				<div v-menu-close class="menu-cross">
-					< / close >
-				</div>
-			</div>
-			<div class="bottom">
-				<div class="topic-web">
-					<h3>Web<span class="color-yellow">.</span></h3>
-					<ul>
-						<li><span></span><a href="#">DLRT</a></li>
-						<li><span></span><a href="#">Skybrud.dk <sup>(intern)</sup></a></li>
-					</ul>
-				</div>
-				<div class="topic-design">
-					<h3>Design<span class="color-yellow">.</span></h3>
-					<ul>
-						<li><a href="#">Happy Bear Prints</a></li>
-					</ul>
-				</div>
-				<div class="topic-writing">
-					<h3>Writing<span class="color-yellow">.</span></h3>
-					<ul>
-						<li><a href="#">Blog</a></li>
-					</ul>
-				</div>
+	<div id="app">
+	<div class="menu">
+		<div class="top">
+			<div v-menu-close class="menu-cross">
+				< / close >
 			</div>
 		</div>
+		<div class="bottom">
+			<div class="topic-web">
+				<h3>Web<span class="color-yellow">.</span></h3>
+				<ul>
+					<li><span></span><a href="#">DLRT</a></li>
+					<li><span></span><a href="#">Skybrud.dk <sup>(intern)</sup></a></li>
+				</ul>
+			</div>
+			<div class="topic-design">
+				<h3>Design<span class="color-yellow">.</span></h3>
+				<ul>
+					<li><a href="#">Happy Bear Prints</a></li>
+				</ul>
+			</div>
+			<div class="topic-writing">
+				<h3>Writing<span class="color-yellow">.</span></h3>
+				<ul>
+					<li><a href="#">Blog</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<main class="parallax">
+		<div class="wrapper">
+
 		<section id="hello">
 			<div v-fade class="image"></div>
 			<h1 v-fade-in class="hi">Hi, I’m Steffen<span v-circle class="dot"></span></h1>
 		</section>
-		<section v-fade-down id="wrap" class="light">
-			<!-- <parallax></parallax> -->
-			<p>I’m a <span v-age></span> year old web developer who lives in Denmark. My approach to building <span class="open-menu" v-menu-open>products</span> is fun, personal, and always forward-looking.</p>
-		</section>
-		<section v-fade-down id="wrap" class="dark">
-			<p>Want to get in touch? <a href="mailto:info@steffenp.dk">Drop me a line</a>!
-				<br>For more about me, I'm also on <a href="#">Instagram</a> &amp; <a href="#">Facebook</a> &amp; <a href="#">LinkedIn</a>.</p>
-		</section>
-		<!-- <section v-fade-down id="social">
-			<ul>
-				<li>
-					<i class="fa fa-facebook"></i>
-				</li>
-				<li>
-					<i class="fa fa-twitter"></i>
-				</li>
-				<li>
-					<i class="fa fa-instagram"></i>
-				</li>
-			</ul>
-		</section> -->
 
+		<section id="wrap" class="parallax-group light">
+			<p>I’m a <span v-age></span> year old web developer who lives in Denmark. My approach to building <span class="open-menu" v-menu-open>products</span> is fun, personal, and always forward-looking.</p>
+			<div v-fade-down class="parallax-layer parallax-layer-back"></div>
+		</section>
+
+		<section id="wrap" class="parallax-group dark">
+			<p>Want to get in touch? <a href="mailto:info@steffenp.dk">Drop me a line</a>!
+				<br>For more about me, I'm also on <a href="#">Instagram</a> &amp; <a href="#">Facebook</a> &amp; <a href="#">LinkedIn</a>.
+			</p>
+			<div v-fade-down class="parallax-layer parallax-layer-base"></div>
+		</section>
+
+	</div>
 	</main>
+</div>
 	<script src="/dist/build.js"></script>
 </body>
 

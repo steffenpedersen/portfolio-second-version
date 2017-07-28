@@ -14,8 +14,8 @@ export default Vue.directive('fade-down', {
 			timelineParameters
 				.add({
 					targets: el,
-					translateY: [
-						{ value: 150 },
+					bottom: [
+						{ value: 500 },
 						{ value: 0 },
 					],
 					opacity: [

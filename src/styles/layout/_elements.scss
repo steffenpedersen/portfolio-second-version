@@ -53,19 +53,25 @@
 
 #wrap {
 	padding: 55px 100px;
-	margin: 55px 0;
+	margin: 125px 0;
 	@include lt(10) {
 		padding: 25px 50px;
 	}
 
 	&.light {
-		background-color: $color-grey;
 		color: $color-black;
+
+		.parallax-layer {
+			background-color: $color-grey;
+		}
 	}
 
 	&.dark {
-		background-color: $color-black;
 		color: $color-white;
+
+		.parallax-layer {
+			background-color: $color-black;
+		}
 
 		a {
 			color: $color-yellow;
@@ -91,6 +97,9 @@
 	.top {
 		.menu-cross {
 			position: absolute;
+			display: flex;
+			justify-content: center;
+			align-items: center;
 			font-family: 'poppinsbold', sans-serif;
 			font-size: $font-xs;
 			font-weight: 700;
@@ -100,6 +109,33 @@
 			margin: 20px;
 			color: $color-black;
 			cursor: pointer;
+			text-align: center;
+
+			&::before {
+				content: '';
+				position: absolute;
+				width: 30px;
+				height: 30px;
+				border: 5px solid $color-yellow;
+				border-radius: 50%;
+				animation: pulse 2s ease infinite;
+			}
+		}
+
+		@keyframes pulse {
+			from {
+				transform: scale(0.5);
+				opacity: 0.5;
+			}
+
+			50% {
+				opacity: 0.25;
+			}
+
+			to {
+				transform: scale(1);
+				opacity: 0;
+			}
 		}
 	}
 
