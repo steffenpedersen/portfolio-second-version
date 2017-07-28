@@ -2,10 +2,16 @@
 	position: relative;
 	display: flex;
 	align-items: center;
+	@include lt(10) {
+		flex-direction: column;
+		align-items: flex-start;
+	}
 
 	.image {
 		height: 125px;
+		min-height: 125px;
 		width: 125px;
+		min-width: 125px;
 		margin-right: 40px;
 		border-radius: 50%;
 		background-image: url("../src/assets/img/me.jpg");
@@ -13,6 +19,26 @@
 		background-position: center;
 		background-repeat: no-repeat;
 		opacity: 0;
+		@include lt(20) {
+			height: 105px;
+			min-height: 105px;
+			width: 105px;
+			min-width: 105px;
+		}
+		@include lt(15) {
+			height: 85px;
+			min-height: 85px;
+			width: 85px;
+			min-width: 85px;
+		}
+		@include lt(10) {
+			height: 65px;
+			min-height: 65px;
+			width: 65px;
+			min-width: 65px;
+			margin-right: 0;
+			margin-bottom: 20px;
+		}
 	}
 
 	.dot {
@@ -21,28 +47,38 @@
 		background-color: $color-yellow;
 		border-radius: 50%;
 		position: absolute;
-		bottom: 42px;
+		bottom: 17px;
 	}
 }
 
 #wrap {
 	padding: 55px 100px;
 	margin: 55px 0;
+	@include lt(10) {
+		padding: 25px 50px;
+	}
 
 	&.light {
-		// background-color: $color-grey;
+		background-color: $color-grey;
 		color: $color-black;
 	}
 
 	&.dark {
 		background-color: $color-black;
 		color: $color-white;
+
+		a {
+			color: $color-yellow;
+			@include hover(12px, "white");
+		}
 	}
 }
 
 .menu {
 	position: fixed;
 	display: flex;
+	justify-content: center;
+	align-items: center;
 	height: 100vh;
 	width: 100vw;
 	background-color: $color-white;
@@ -50,11 +86,37 @@
 	top: 0;
 	left: 0;
 	pointer-events: none;
-	z-index: 1;
+	z-index: 100;
 
-	.menu-cross {
-		padding: 20px;
-		color: white;
-		background-color: black;
+	.top {
+		.menu-cross {
+			position: absolute;
+			font-family: 'poppinsbold', sans-serif;
+			font-size: $font-xs;
+			font-weight: 700;
+			top: 0;
+			left: 0;
+			padding: 20px;
+			margin: 20px;
+			color: $color-black;
+			cursor: pointer;
+		}
 	}
+
+	.bottom {
+		.topic-web,
+		.topic-design,
+		.topic-writing {
+			opacity: 0; // default
+		}
+	}
+
+}
+
+.open-menu {
+	color: $color-yellow;
+	cursor: pointer;
+	position: relative;
+
+	@include hover();
 }

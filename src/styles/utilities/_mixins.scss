@@ -9,3 +9,28 @@
 		@media all and (max-width:map-get($breakpoints, $key)) { @content; }
 	}
 }
+
+@mixin hover($height: 12px, $color: "black") {
+	&::after {
+		content: '';
+		height: $height;
+		position: absolute;
+		top: 50%;
+		left: 0;
+		transform: translateY(-50%);
+		z-index: 1;
+		width: 0;
+		@if $color == "black" {
+			background-color: $color-black;
+		}
+		@if $color == "white" {
+			background-color: $color-white;
+		}
+		@if $color == "yellow" {
+			background-color: $color-yellow;
+		}
+	}
+	&:hover::after {
+		width: 100%;
+	}
+}

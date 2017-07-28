@@ -4,24 +4,29 @@ import anime from 'animejs';
 
 export default Vue.directive('fade-down', {
 	inserted(el) {
+		const scroll = window.pageYOffset;
 
-		var timelineParameters = anime.timeline({
-		});
+		if (scrollY < 120) {
 
-		timelineParameters
-			.add({
-				targets: el,
-				translateY: [
-					{ value: 150 },
-					{ value: 0 },
-				],
-				opacity: [
-					{ value: 0 },
-					{ value: 1 },
-				],
-				duration: 1500,
-				elasticity: 400,
+			var timelineParameters = anime.timeline({
 			});
+
+			timelineParameters
+				.add({
+					targets: el,
+					translateY: [
+						{ value: 150 },
+						{ value: 0 },
+					],
+					opacity: [
+						{ value: 0 },
+						{ value: 1 },
+					],
+					duration: 1500,
+					elasticity: 400,
+				});
+
+			}
 	},
 });
 

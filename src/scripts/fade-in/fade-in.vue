@@ -3,25 +3,30 @@ import Vue from 'vue';
 import anime from 'animejs';
 
 export default Vue.directive('fade-in', {
-	inserted(el) {
+	inserted(el, binding) {
+		const scroll = window.pageYOffset;
 
-		var timelineParameters = anime.timeline({
-		});
+		if (scrollY < 120) {
 
-		timelineParameters
-			.add({
-				targets: el,
-				translateY: [
-					{ value: -500 },
-					{ value: 0 },
-				],
-				opacity: [
-					{ value: 0 },
-					{ value: 1 },
-				],
-				duration: 2000,
-				elasticity: 400,
+			var timelineParameters = anime.timeline({
 			});
+
+			timelineParameters
+				.add({
+					targets: el,
+					translateY: [
+						{ value: -500 },
+						{ value: 0 },
+					],
+					opacity: [
+						{ value: 0 },
+						{ value: 1 },
+					],
+					duration: 2000,
+					elasticity: 400,
+				});
+
+		}
 	},
 });
 
