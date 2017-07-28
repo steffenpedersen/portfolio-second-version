@@ -1,0 +1,11 @@
+@mixin gt($key) {
+	@if map-get($breakpoints, $key) {
+		@media all and (min-width:map-get($breakpoints, $key) + 1) { @content; }
+	}
+}
+
+@mixin lt($key) {
+	@if map-get($breakpoints, $key) {
+		@media all and (max-width:map-get($breakpoints, $key)) { @content; }
+	}
+}

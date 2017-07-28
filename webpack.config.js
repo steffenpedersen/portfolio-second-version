@@ -38,13 +38,25 @@ module.exports = {
         loader: 'babel-loader',
         exclude: /node_modules/
       },
-      {
-        test: /\.(png|jpg|gif|svg)$/,
-        loader: 'file-loader',
-        options: {
-          name: '[name].[ext]?[hash]'
-        }
-      }
+			{
+				test: /\.(eot|svg|ttf|woff|woff2)$/,
+				use: {
+					loader: 'file-loader',
+					options: {
+						name: '/fonts/[name].[ext]',
+					},
+				},
+				exclude: [
+					'./src/assets/svgs/',
+				]
+			},
+			{
+				test: /\.(png|jpg|gif|svg)$/,
+				loader: 'file-loader',
+				options: {
+					name: '/assets/[name].[ext]?[hash]'
+				}
+			}
     ]
   },
   resolve: {

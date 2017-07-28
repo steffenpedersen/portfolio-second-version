@@ -1,12 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>simple</title>
-		<link rel="stylesheet" href="/dist/main.css">
-  </head>
-  <body>
-    <div id="app"></div>
-    <script src="/dist/build.js"></script>
-  </body>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, maximum-scale=1" id="viewport">
+	<title>simple</title>
+	<link rel="stylesheet" href="/dist/main.css">
+</head>
+
+<body>
+	<main id="app">
+		<div class="menu">
+			<div class="top">
+				<div v-menu-close class="menu-cross">
+					X
+				</div>
+			</div>
+			<div class="bottom">
+				<ul>
+					<li>åh</li>
+					<li>min</li>
+					<li>fucking</li>
+					<li>god</li>
+				</ul>
+			</div>
+		</div>
+		<section id="hello">
+			<div v-fade class="image"></div>
+			<h1 v-fade-in class="hi">Hi, I’m Steffen<span v-circle class="dot"></span></h1>
+		</section>
+		<section v-fade-down id="wrap" class="light">
+			<parallax></parallax>
+			<p>I’m a <span v-age></span> year old web developer who lives in Denmark. My approach to building <a v-menu-open>products</a> is fun, personal, and always forward-looking.</p>
+		</section>
+		<section v-fade-down id="wrap" class="light">
+			<parallax></parallax>
+			<p>When I do not create wonders, I can be seen with my friends and family. Or with my old Gameboy.</p>
+		</section>
+		<section v-fade-down id="wrap" class="dark">
+			<p>Want to get in touch? <a href="mailto:info@steffenp.dk">Drop me a line</a>!</p>
+		</section>
+		<section v-fade-down id="social">
+			<ul>
+				<li>
+					<i class="fa fa-facebook"></i>
+				</li>
+				<li>
+					<i class="fa fa-twitter"></i>
+				</li>
+				<li>
+					<i class="fa fa-instagram"></i>
+				</li>
+			</ul>
+		</section>
+
+	</main>
+	<script src="/dist/build.js"></script>
+</body>
+
 </html>

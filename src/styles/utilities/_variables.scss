@@ -1,1 +1,20 @@
-$black: #262626;
+$color-white: #FFFFFF;
+$color-grey: #F1F1F1;
+$color-black: #262626;
+$color-yellow: #FACA33;
+
+$breakpoints: (
+	0: 100vw,
+	5: 400px,
+	7: 600px,
+	10: 768px,
+	20: 1024px,
+	25: 1280px,
+	30: 1330px
+);
+
+$font-xl: 88px;
+$font-lg: 62px;
+$font-md: 38px;
+$font-sm: 20px;
+$font-xs: 13px;
